@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess a number</title>
+</head>
+<body>
+    <script>
+
+function numToFind(){ //définie et verifie que le nombre à trouver est entre 0 et 50
+    const numToFind = parseInt(prompt("Joueur 1, Donne moi un nombre à trouver entre 0 et 50 !"))
+    if (numToFind >= 0 && numToFind < 50){ 
+    return(numToFind);
+    }
+        else {
+        const numToFind = parseInt(prompt("J'ai dit entre 0 et 50 !"))
+    }
+    }
+
+function giveANumber(){
+        const givenNumber = parseInt(prompt("joueur 2, Donne moi un nombre au hasard entre 0 et 50 !"));
+        if (givenNumber >= 0 && givenNumber < 50){ 
+    return(givenNumber);
+    }
+        else {
+        const givenNumber = parseInt(prompt("J'ai dit entre 0 et 50 !"))
+    }
+    } 
+function didIWin(num1,num2) { //décalration de la fonction qui vérifie si on a trouvé le bon nombre
+      
+
+        if (isNaN(num2)) {
+        alert("Veuillez entrer un nombre valide!");
+        return false;
+    }
+    if (num2 < num1) {
+        alert("Plus grand!");
+        return false;
+    }
+    else if (num2 > num1) {
+        alert("Plus petit!");
+        return false;
+    }
+    else if (num2 === num1) {
+        alert("Bravo !!!");
+        return true;
+    }
+}    
+    // if (givenNumber > numToFind) {
+    //     alert("plus petit!");
+    //     playGame();
+    // }
+    // else if (givenNumber < numToFind) {
+    //     alert("Plus grand!");
+    //     playGame();
+    // }
+    // else if (givenNumber === numToFind) {
+    //     alert("Bravo !!!");
+    //     return;
+    // }
+    // else {
+    //     alert("Veuillez entrer un nombre valide!");
+    //     playGame();
+    // }
+
+
+function playGame() {
+    let hasWon = false;
+    const number1 = numToFind();
+    
+    while (!hasWon) {
+        const number2 = giveANumber();
+        hasWon = didIWin(number1,number2);
+    }
+}
+playGame()
+
+// function playGame(){
+// const number = giveANumber();
+// didIWin(number);
+// }
+
+// playGame();
+
+</script>
+    
+</body>
+</html>

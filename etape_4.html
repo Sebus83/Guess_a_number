@@ -1,0 +1,75 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess a number</title>
+
+</head>
+<body>
+    <div id="button">
+    </div>
+
+    <div id="range">
+    </div>
+
+    <div id="counter">
+    </div>
+
+    <div id="try">
+    </div>
+
+    <script>
+
+  
+   function verify(number){ //définie et verifie que le nombre à trouver est entre 0 et 50 
+   
+  
+    if (number >= 0 && number < 50){ 
+    return(number);
+    }
+        else {
+        const number = parseInt(prompt("J'ai dit entre 0 et 50 !"))
+    }
+    }
+
+function didIWin(num1,num2) { //décalration de la fonction qui vérifie si on a trouvé le bon nombre
+      
+console.log(num1,num2)
+        if (isNaN(num2)) {
+        alert("Veuillez entrer un nombre valide!");
+        return false;
+    }
+    if (num2 < num1) {
+        alert("Plus grand!");
+        return false;
+    }
+    else if (num2 > num1) {
+        alert("Plus petit!");
+        return false;
+    }
+    else if (num2 === num1) {
+        alert("Bravo !!!");
+        return true;
+    }
+    }
+
+function playGame() {
+let numToFind = parseInt(prompt("Joueur 1, Donne moi un nombre à trouver entre 0 et 50 !"))
+let givenNumber = parseInt(prompt("joueur 2, Donne moi un nombre au hasard entre 0 et 50 !"))
+   
+let hasWon = false;
+    numToFind = verify(numToFind);
+    
+    
+    while (!hasWon) {
+        givenNumber = parseInt(prompt("joueur 2, Donne moi un nombre au hasard entre 0 et 50 !"))
+        givenNumber = verify(givenNumber);
+        hasWon = didIWin(numToFind,givenNumber);
+    }
+}
+playGame()
+
+</script>
+    
+</body>
+</html>
